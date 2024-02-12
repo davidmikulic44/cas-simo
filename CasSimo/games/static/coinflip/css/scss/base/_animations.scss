@@ -1,0 +1,126 @@
+@keyframes SmallToBig {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes flipHeads {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(1800deg);
+    }
+}
+
+
+@keyframes flipTails {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(1980deg);
+    }
+}
+
+@keyframes flipCoin {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(1890deg);
+    }
+}
+
+@keyframes spinWheel {
+    from {
+        transform: rotate(180deg);
+    }
+    to {
+        transform: rotate(1800deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulseNegative {
+    0% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.8);
+    }
+}
+
+@keyframes changeWheelHue {
+    0% {
+        border: 10px solid #d43434;
+    }
+
+    25% {
+        border: 10px solid #66cf29;
+    }
+    50% {
+        border: 10px solid #3a4eff;
+    }
+    100% {
+        border: 10px solid #d1279e;
+    }
+
+}
+
+@keyframes changeSpinColor {
+    0% {
+        background: radial-gradient(circle, rgba(251,208,63,1) 0%, rgba(252,158,70,1) 100%);
+        transform: rotate(0deg);
+    }
+    50% {
+        background: radial-gradient(circle, rgba(252,158,70,1) 0%, rgba(251,208,63,1) 100%);
+        transform: rotate(180deg);
+    }
+    100% {
+        background: radial-gradient(circle, rgba(251,208,63,1) 0%, rgba(252,158,70,1) 100%);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes changeInfoColor {
+    0% {
+        background: radial-gradient(circle, rgba(251,208,63,1) 0%, rgba(252,158,70,1) 100%);
+    }
+    50% {
+        background: radial-gradient(circle, rgba(252,158,70,1) 0%, rgba(251,208,63,1) 100%);
+    }
+    100% {
+        background: radial-gradient(circle, rgba(251,208,63,1) 0%, rgba(252,158,70,1) 100%);
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

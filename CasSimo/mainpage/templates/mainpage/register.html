@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'coinflip/css/styles.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b121021c56.js" crossorigin="anonymous"></script>
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="container">
+    <!-- REGISTER -->
+        <h1 class="login-register-title">Register</h1>
+
+        {% for message in messages %}
+            <div class="login-register-error" style="text-align: center" role="alert">
+                    {{message}}
+            </div>
+        {% endfor %}
+
+        <form method="POST" class="login-register-form">
+            {% csrf_token %}
+            
+            {{form.username}}
+            {{form.password1}}
+            {{form.password2}}
+
+
+
+            <button class="login-register-button" type="submit">Create account</button>
+
+
+            <div class="d-flex justify-content-center" style="margin-bottom:2%">
+                <a href="{% url 'login' %}" class="login-register-instead" type="submit">Already have an account?</a>
+            </div>
+        </form>
+            
+    </div>
+</body>
+
+</html>

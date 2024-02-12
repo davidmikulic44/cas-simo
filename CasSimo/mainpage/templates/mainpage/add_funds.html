@@ -1,0 +1,27 @@
+{% extends 'mainpage/main.html' %}
+
+{% block title %}
+    Add funds
+{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Funds</title>
+</head>
+<body>
+    <div class="container">
+    <h1 class="add-funds-title">Add Funds to User Account</h1>
+    <form method="post" class="add-funds">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="login-register-button">Add Funds</button>
+    </form>
+</div>
+</body>
+</html>
+
+{% endblock %}

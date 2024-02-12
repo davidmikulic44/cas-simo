@@ -1,0 +1,86 @@
+{% extends 'games/main.html' %}
+
+{% block title %}
+    Roulette
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+            <div class="roulette-container">
+                <form method="POST" class="roulette-form" id="rouletteForm">
+                    {% csrf_token %}
+                    <div class="roulette-form-container">
+                        <h2 class="roulette-text">Bet amount</h2>
+                        {{ form.bet_amount }}
+                        <h2 class="roulette-text">Bet choice</h2>
+                        <div class="roulette-choices">
+                            <label for="roulette-choice-color" class="roulette-single-choice">
+                                <input type="radio" id="roulette-choice-color" name="roulette-choice" value="color">Color
+                            </label>
+                            <label for="roulette-choice-number" class="roulette-single-choice">
+                                <input type="radio" id="roulette-choice-number" name="roulette-choice" value="number">Number
+                            </label>
+                            <label for="roulette-choice-all" class="roulette-single-choice">
+                                <input type="radio" id="roulette-choice-all" name="roulette-choice" value="all">Both
+                            </label>
+                        </div>
+                        <div class="hidden-choice" style="display: none;">
+                            {{ form.condition }}
+                        </div>
+
+                        <div class="roulette-color">
+                            <h2 class="roulette-text">Choose color</h2>
+                            {{ form.bet_color }}
+                        </div>
+
+                        <div class="roulette-number" style="display: none;">
+                            <h2 class="roulette-text">Choose number</h2>
+                            {{ form.bet_number }}
+                        </div>
+                    </div>
+                    <div class="wheel-container">
+                        <div class="spin-btn"><h1>SPIN</h1></div>
+                        <div class="ticker"></div>
+                        <div class="wheel-background"></div>
+                        <div class="wheel">
+                            {% for i in "x"|rjust:37 %}
+                            <div class="slice" style="--i: {{ forloop.counter }}">
+                                {% if forloop.counter != 37 %}
+                                <p class="value" id="slice_{{ forloop.counter }}">{{ forloop.counter }}</p>
+                                {% else %}
+                                <p class="value" id="slice_{{ forloop.counter }}">0</p>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    
+                    {% for message in messages %}
+                        {% if 'success' in message.tags %}
+                            <div class="alert alert-success-roulette" role="alert">
+                                <p>{{ message }}</p>
+                            </div>
+                        {% elif 'error' in message.tags %}
+                            <div class="alert alert-loss-roulette" role="alert">
+                                <p>{{ message }}</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                            
+                        <div class="alert alert-info-roulette" id="rouletteInfoText" role="alert">
+                            <p>Test your luck!!!!!</p>
+                        </div>
+                    
+
+
+                 </form>
+                
+                
+            </div>
+    </div>
+
+    {% load static %}
+    <script src="{% static 'coinflip/js/formLoader.js' %}"></script>
+
+{% endblock %}

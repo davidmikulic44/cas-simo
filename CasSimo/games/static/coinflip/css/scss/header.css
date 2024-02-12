@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&display=swap");
+@keyframes SmallToBig {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes flipHeads {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(1800deg);
+  }
+}
+@keyframes flipTails {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(1980deg);
+  }
+}
+@keyframes flipCoin {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(1890deg);
+  }
+}
+@keyframes spinWheel {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(1800deg);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes pulseNegative {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+@keyframes changeWheelHue {
+  0% {
+    border: 10px solid #d43434;
+  }
+  25% {
+    border: 10px solid #66cf29;
+  }
+  50% {
+    border: 10px solid #3a4eff;
+  }
+  100% {
+    border: 10px solid #d1279e;
+  }
+}
+@keyframes changeSpinColor {
+  0% {
+    background: radial-gradient(circle, rgb(251, 208, 63) 0%, rgb(252, 158, 70) 100%);
+    transform: rotate(0deg);
+  }
+  50% {
+    background: radial-gradient(circle, rgb(252, 158, 70) 0%, rgb(251, 208, 63) 100%);
+    transform: rotate(180deg);
+  }
+  100% {
+    background: radial-gradient(circle, rgb(251, 208, 63) 0%, rgb(252, 158, 70) 100%);
+    transform: rotate(360deg);
+  }
+}
+@keyframes changeInfoColor {
+  0% {
+    background: radial-gradient(circle, rgb(251, 208, 63) 0%, rgb(252, 158, 70) 100%);
+  }
+  50% {
+    background: radial-gradient(circle, rgb(252, 158, 70) 0%, rgb(251, 208, 63) 100%);
+  }
+  100% {
+    background: radial-gradient(circle, rgb(251, 208, 63) 0%, rgb(252, 158, 70) 100%);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 53px;
+  background-color: #222;
+  position: fixed;
+  width: 100%;
+}
+
+.header-navbar {
+  display: flex;
+  gap: 10px;
+  list-style-type: none;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+
+.header-user-actions, .header-user-info {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 15px;
+  align-items: center;
+}
+.header-user-actions li, .header-user-actions a, .header-user-info li, .header-user-info a {
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+  transition: all ease-in-out 0.1s;
+}
+
+.nav-item {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.nav-item:hover {
+  color: #ffc123;
+  animation: SmallToBig 0.3s infinite reverse;
+}
+
+#userMoney {
+  cursor: default;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}/*# sourceMappingURL=header.css.map */

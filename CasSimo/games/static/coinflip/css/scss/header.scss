@@ -1,0 +1,55 @@
+@import 'base/typography';
+@import 'base/colors';
+@import 'base/animations';
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 53px;
+    background-color: $color-header;
+    position: fixed;
+    width: 100%;
+}
+
+.header-navbar{
+    display: flex;
+    gap: 10px;
+    list-style-type: none;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+.header-user-actions, .header-user-info {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 15px;
+    align-items: center;
+    li, a {
+        font-size: 20px;
+        color: $color-font-light;
+        text-decoration: none;
+        padding: 5px;
+        transition: all ease-in-out 0.1s;
+    }
+}
+
+.nav-item {
+    display:flex;
+    gap: 5px;
+    align-items: center;
+    &:hover {
+        color: #ffc123;
+        animation: SmallToBig 0.3s infinite reverse;
+    }
+}
+
+#userMoney {
+    cursor: default;
+    display:flex;
+    gap: 5px;
+    align-items: center;
+}

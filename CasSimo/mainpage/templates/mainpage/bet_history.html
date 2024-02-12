@@ -1,0 +1,47 @@
+{% extends 'mainpage/main.html' %}
+
+{% block content %}
+    <div class="bet-history-container">
+        <div class="bet-history-table-container">
+            <h2 class="table-title">Bet History</h2>
+            {% if not request.user.is_staff %}
+            <div class="user-profile">
+                <div class="username">
+                    <h3>Username:</h3>
+                    <h1>{{ request.user.username }}</h1>
+                </div>
+                <div class="user-balance">
+                    <h3>Balance:</h3>
+                    <h1>{{ request.user.user.money }}€</h1>
+                </div>
+            </div>
+            {% endif %}
+            <table class="bet-history-table">
+                <thead class="bet-history-header">
+                    <tr>
+                        {% if request.user.is_staff %}
+                            <th class="bet-history-header-cell">Username</th>
+                        {% endif %}
+                        <th class="bet-history-header-cell">Game</th>
+                        <th class="bet-history-header-cell">Bet Amount</th>
+                        <th class="bet-history-header-cell">Win Amount</th>
+                        <th class="bet-history-header-cell">Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in all_bet_history %}
+                        <tr class="bet-history-row">
+                            {% if request.user.is_staff %}
+                                <td class="bet-history-row-cell">{{ entry.user.username }}</td>
+                            {% endif %}
+                            <td class="bet-history-row-cell">{{ entry.game }}</td>
+                            <td class="bet-history-row-cell">{{ entry.bet_amount }}</td>
+                            <td class="bet-history-row-cell">{{ entry.win_amount }}</td>
+                            <td class="bet-history-row-cell">{{ entry.timestamp }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

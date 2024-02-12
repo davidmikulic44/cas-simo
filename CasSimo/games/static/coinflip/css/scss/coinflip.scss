@@ -1,0 +1,155 @@
+@import 'base/colors';
+@import 'base/animations';
+@import 'base/mixins';
+@import 'base/typography';
+
+.btn-flip-coin {
+    width: 200px;
+    height: 80px;
+}
+
+
+.coinflip-container, .coinflip-form {
+    width: 100%;
+}
+
+.coinflip-container {
+    display:flex;
+    justify-content: space-around;
+}
+
+.coinflip-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bet-amount {
+    position: absolute;
+    top: 40%;
+    z-index: 10;
+    background-color: $color-font-light;
+    width: 400px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+.coin-radio {
+    font-size: 28px;
+}
+
+.coin-radio input[type="radio"] {
+    cursor: pointer;
+}
+
+#id_bet_side {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.coin-label {
+    width: 50vw;
+    height: 100vh;
+    display: block;
+}
+
+#heads {
+    @include CoinSideText($red);
+}
+
+#tails {
+    @include CoinSideText($black);
+}
+
+
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#coin {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transition: transform 1s ease-in;
+    transform-style: preserve-3d;
+}
+
+#coin div {
+    width: 100%;
+    border-radius: 50%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+#coin.heads {
+    animation: flipHeads 3s ease-out forwards;
+}
+
+#coin.tails {
+    animation: flipTails 3s ease-out forwards;
+}
+
+#coin.spin {
+    animation: flipCoin 3s ease-out forwards;
+}
+
+
+#coin.tails-still {
+    .side-tails {
+        background-color: $red;
+    }
+    .side-heads {
+        background-color: $black;
+    }
+}
+
+#coin.heads-still {
+    transform: rotateY(360deg);
+}
+
+.side-heads {
+    background-color: $red;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+}
+.side-tails {
+    background-color: $black;
+    height: 100%;
+    width: 100%;
+    transform: rotateY(-180deg);
+}
+
+.alert-success-coinflip, .alert-danger-coinflip {
+    color: $color-font-dark;
+    animation: pulse 0.5s infinite linear;
+}
+
+.coinflip-bet-amount {
+    color: $color-font-dark;
+}

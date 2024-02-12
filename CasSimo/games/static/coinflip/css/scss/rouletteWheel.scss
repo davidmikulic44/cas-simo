@@ -1,0 +1,173 @@
+@import 'base/_colors.scss';
+@import 'base/_mixins.scss';
+@import 'base/_animations.scss';
+
+  .wheel-container {
+    --size: 70vmin;
+    cursor: pointer;
+    display: grid;
+    grid-template-areas: "stack";
+    place-items: center;
+    font-size: calc(var(--size) / 14);
+  }
+
+  .wheel-container > *,
+  .wheel-container::before,
+  .wheel-container::after {
+    position: relative;
+    grid-area: stack;
+  }
+
+  .wheel-container::before {
+    content: "";
+    top: 0;
+    left: 0;
+    background-color: white;
+    inline-size: calc(var(--size) / 3);
+    block-size: calc(var(--size) / 3);
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .wheel-container::after {
+    content: "Click to reset wheel";
+    font-size: 0.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+    user-select: none;
+    max-width: 7.5em;
+    opacity: 0;
+    z-index: 2;
+  }
+
+  .ticker {
+    --size: 0.8em;
+    place-self: center start;
+    margin-inline-end: calc((var(--size) - 0.1em) * -1);
+    background-color: #ffce3b;
+    width: var(--size);
+    height: calc(var(--size) / 2);
+    -webkit-clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    z-index: 2;
+    rotate: 180deg;
+    right: 40px;
+    border: 3px solid black;
+  }
+
+  .wheel {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    grid-template-areas: "stack";
+    inline-size: var(--size);
+    block-size: var(--size);
+    border-radius: 50%;
+    rotate: 180deg;
+  }
+  
+  .wheel-background {
+    background-color: black;
+    inline-size: var(--size);
+    block-size: var(--size);
+    animation: changeWheelHue 10s infinite;
+    border-radius: 50%;
+  }
+
+  .slice {
+    --count: 37; /* Update the total number of slices */
+    --radius: calc(var(--size) / 4);
+    --deg: calc(var(--i) * (360deg / var(--count)));
+
+    grid-area: stack;
+    font-family: "Zodiak", system-ui, sans-serif;
+    font-weight: 900;
+    transform: translate3d(
+        calc(cos(var(--deg)) * var(--radius)),
+        calc(sin(var(--deg)) * var(--radius)),
+        0
+      )
+      rotate(calc(var(--deg)));
+  }
+
+  .value {
+    --outline: 0.03em;
+    --shadow: calc(var(--outline) * 2);
+    color: var(--font-color);
+    display: flex;
+    align-items: center;
+    padding-top: 0.2em;
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    text-shadow: var(--bg) var(--outline) var(--outline),
+      hsla(0 0% 0% / 0.2) var(--shadow) var(--shadow);
+    white-space: nowrap;
+    rotate: 90deg;
+    inline-size: calc(var(--size) / 2);
+    block-size: calc(var(--size) / var(--count) * 3.3);
+    background-color: var(--bg);
+    clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 100%);
+    user-select: none;
+  }
+
+  /* Fix for Safari squashing spaces */
+  .value > span {
+    display: inline-block;
+    height: 1ex;
+  }
+
+  .value:not(.text)::before {
+    font-size: 0.5em;
+    height: 1.6ex;
+  }
+
+  .text {
+    font-size: 0.5em;
+  }
+
+  .sm {
+    font-size: 0.9em;
+  }
+
+  .slice:nth-child(odd) {
+    --bg: #303030;
+    --font-color: #fff;
+  }
+
+  .slice:nth-child(even) {
+    --bg: #c81a18;
+    --font-color: #eee;
+  }
+  
+.slice:nth-child(37) {
+    --bg: #31e031;
+    --font-color: #000;
+}
+
+.wheel-spin {
+    animation: spinWheel 4s ease-in-out, changeWheelhue 10s infinite;
+}
+
+.spin-btn {
+    z-index: 1;
+    font-weight: 700;
+    height: 217px;
+    width: 217px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 45px 18px rgba(255,138,0,0.67);
+    animation: changeSpinColor 10s linear infinite;
+    h1 {
+        animation: pulse 1s infinite ease-out;
+        font-size: 40px;
+    }
+}
+
+.winning-slice {
+    color: gold;
+    animation: pulse 0.5s infinite linear;
+}

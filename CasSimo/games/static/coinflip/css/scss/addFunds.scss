@@ -1,0 +1,47 @@
+#id_user {
+    width: 80%;
+    height: 53px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    background: none;
+    border: none;
+    border-bottom-width: medium;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+    border-bottom-width: medium;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+    color: white;
+    border-bottom: 4px solid;
+    option {
+        color: $color-font-dark;
+    }
+}
+
+.add-funds {
+    label {
+        display: none;
+    }
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#id_amount {
+    all: unset;
+    height: 53px;
+    width: 200px;
+    color: $color-font-dark;
+    background-color: $color-font-light;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.add-funds-title {
+    text-align: center;
+}

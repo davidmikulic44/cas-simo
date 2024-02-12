@@ -1,0 +1,31 @@
+@mixin CoinSideText($color) {
+    background-color: $color;
+    color: $color-font-light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    font-weight: 700;
+
+    &:hover {
+        background-color: lighten($color, 15);
+        cursor:pointer;
+
+        .side {
+            animation: SmallToBig 0.3s infinite reverse;
+            label {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@mixin Input {
+    height: 53px;
+    font-size: 28px;
+    font-family: $font-primary;
+    font-weight: 700;
+    border: none;
+    border-bottom: 4px solid $color-header;
+    width: 80%;
+}

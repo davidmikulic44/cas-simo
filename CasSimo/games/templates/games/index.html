@@ -1,0 +1,23 @@
+{% extends 'games/main.html' %}
+
+{% block title %}
+    Django-games
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Games</h1>
+                <h2>Available games:</h2>
+                <h2><a href="{% url 'coin_flip' %}">Coin flip</a></h2>
+                <h2><a href="{% url 'roulette' %}">Roulette</a></h2>
+                
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

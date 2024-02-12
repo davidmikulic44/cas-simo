@@ -1,0 +1,48 @@
+{% extends 'games/main.html' %}
+
+{% block title %}
+    Coin Flip
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <form method="POST" class="coinflip-form" id="coinFlipForm">
+            {% csrf_token %}
+            <div class="bet-amount">
+                <div id="coin">
+                    <div class="side-heads">
+                    </div>
+                    <div class="side-tails">
+                    </div>
+                </div>
+                {% for message in messages %}
+            {% if 'success' in message.tags %}
+                <div class="alert alert-success-coinflip" role="alert">
+                    {{ message }}
+                </div>
+            {% elif 'error' in message.tags %}
+                <div class="alert alert-danger-coinflip" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+                <h2 class="coinflip-bet-amount">Bet amount</h2>
+                {{ form.bet_amount }}
+                
+            </div>
+            <div class="coinflip-container">
+                <label id="heads" class="coin-label" onclick="submitForm('id_bet_side_0')">
+                    <div class="side">{{ form.bet_side.0 }}</div>
+                </label>
+                <label id="tails" class="coin-label" onclick="submitForm('id_bet_side_1')">
+                    <div class="side">{{ form.bet_side.1 }}</div>
+                </label>
+            </div>
+        </form>
+
+    </div>
+    {% load static %}
+    <script src="{% static 'coinflip/js/submitForm.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+@import 'scss/coinflip.scss';
+@import 'scss/roulette.scss';
+@import 'scss/header.scss';
+@import 'scss/base/typography';
+@import 'scss/betHistory.scss';
+@import 'scss/loginRegister.scss';
+@import 'scss/addFunds.scss';
+
+* {
+    margin: 0;
+    font-family: $font-primary;
+}
+
+a {
+    all: unset;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #131313;
+    height: 100vh;
+    color: $color-font-light;
+}
+
+#id_bet_amount {
+    @include Input;
+}
+
+#id_bet_number {
+    @include Input;
+}
